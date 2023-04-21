@@ -21,7 +21,7 @@ const [...cardSection] = document.querySelectorAll(".cards");
 const [...imgsection] = document.querySelectorAll(".src-change")
 function cardChange(foodtype){
     cardSection.map(card => {
-      return imgsection.setAttribute("src", "$`{foodtype}`$");
+      return imgsection.setAttribute("src", "`${foodtype}`");
     } )
 };
 cardChange("foodtype");
