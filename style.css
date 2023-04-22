@@ -56,6 +56,7 @@ input::placeholder{
     border-radius: 10px;
     outline: none;
     border: none;
+    cursor: pointer;
 }
 ::selection{
     background-color: rgb(187, 181, 181);

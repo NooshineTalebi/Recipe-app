@@ -1,27 +1,26 @@
-const searchBox = document.getElementById(".search-box");
-searchBox.addEventListener('click', () => {
-    fetch();
+const searchBox = document.querySelector(".search-box");
+searchBox.addEventListener('change', () => {
+    fetchApI();
     cardChange();
 })
-searchBox.value = "foodtype";
 
-fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch')
-.then((result) => {
-    result.json();
+const foodtype = searchBox.value;
+
+function fetchApI() {
+    fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch')
+    .then((result) => {
+    return result.json();
 })
-then((data) => {
-    console.log(data);
-})
-.catch((err) => {
+    .catch((err) => {
     alert(err);
 });
+}
 
-
-const [...cardSection] = document.querySelectorAll(".cards");
 const [...imgsection] = document.querySelectorAll(".src-change")
-function cardChange(foodtype){
-    cardSection.map(card => {
-      return imgsection.setAttribute("src", "`${foodtype}`");
+function cardChange(){
+    imgsection.map((imgchange) => {
+      return imgchange.setAttribute("src", "`${foodtype}`");
     } )
+
 };
-cardChange("foodtype");
+cardChange(foodtype);
